@@ -1,0 +1,13 @@
+networks:
+  proxy: 
+    external: true
+    name: proxy
+
+services:
+  apache:
+    image: httpd:2.4
+    networks:
+      - proxy
+    labels:
+      - traefik.http.routers.apache.rule=Host(`apache.localhost`)
+      - traefik.http.services.apache.loadbalancer.server.port=80
