@@ -5,7 +5,7 @@ const MONGO_URL = "mongodb://mongo:27017";
 const mongoClient = new MongoClient(MONGO_URL);
 
 // Change this to your own greeting
-const MY_MESSAGE = "Welcome to Dave's page";
+const MY_MESSAGE = "This page is BRANCHING out";
 
 async function run() {
   try {
