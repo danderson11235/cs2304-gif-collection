@@ -3,9 +3,17 @@ volumes:
   gif-db: {}
 services:
   app:
-    image: danderson11235/gif-collection
+    image: danderson11235/gif-collection:latest
     ports:
       - 3000:3000
+    deploy:
+      update_config: 
+        parallelism: 1
+        delaty: 10s
+      mode: replicated
+      replicas: 3
+      placement:
+        constraints: [node.roll == worker]
   mongo:
     image: mongo:5.0
     volumes:
